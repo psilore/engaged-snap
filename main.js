@@ -5,12 +5,20 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1920,
+    height: 1080,
+    titleBarStyle: "hidden",
+    backgroundColor: "#fff",
+    frame: false,
+    // acceptFirstMouse: true,S
+    autoHideMenuBar: true,
+    fullscreen: true,
+    // show: process.argv[3] === "local-server-ssl" ? true : false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
+      webSecurity: false,
+      //preload: path.join(__dirnSame, "preload.js"), // use a preload script
+    },
+  });
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
